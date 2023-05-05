@@ -15,14 +15,9 @@ plugins {
 
 group = "io.reflectoring"
 version = "0.0.1-SNAPSHOT"
-//sourceCompatibility = "17"
 
 repositories {
 	mavenCentral()
-}
-
-application {
-	mainClass.set("FlywayApplicationKt")
 }
 
 dependencies {
@@ -48,7 +43,6 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 	testImplementation("org.junit.jupiter:junit-jupiter")
-	//implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
 tasks.test {
@@ -62,6 +56,7 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+// https://flywaydb.org/documentation/usage/gradle/baseline
 flyway {
 	//url = "jdbc:h2:mem:"
 	url = "jdbc:postgresql://127.0.0.1:5432/"
@@ -75,8 +70,3 @@ flyway {
 kotlin {
 	jvmToolchain(17)
 }
-
-/*java {
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
-}*/
