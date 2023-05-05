@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-open class FlywayMigrationTest {
+class FlywayMigrationTest {
 
     @Autowired
     lateinit var jdbcTemplate: JdbcTemplate

@@ -1,15 +1,18 @@
 # Database migrations
 
 # Alternatives:
+
 * [flyway](https://documentation.red-gate.com/fd/welcome-to-flyway-184127914.html): -- de facto standard --  uses plain SQL or a JVM language (Java)
 * [Liquibase](https://docs.liquibase.com/concepts/introduction-to-liquibase.html): uses a DSL to define migrations
 
 ## Flyway
 
-!!! there are a lot of SQL dialects: if you use a different DB in prod vs dev you may encounter some issues
-(testcontainers mays be very helpful to ensure dev/prod parity)
+**!!! There are a lot of SQL dialects: if you use a different DB in prod vs dev you may encounter some issues**
 
-[gradle commands](https://flywaydb.org/documentation/usage/gradle/)
+[Testcontainers](https://www.testcontainers.org/) may be very helpful to ensure dev/prod parity
+
+* [gradle commands](https://flywaydb.org/documentation/usage/gradle/)
+* [gradle example](https://documentation.red-gate.com/fd/quickstart-gradle-184127577.html)
 
 ## Commands
 
@@ -21,7 +24,10 @@
 ./gradlew flywayRepair --info
 
 ```
+
 registers all migrations in `flyway_schema_history` table
+
+**!!! Undo reserved to "enterprise" editions** :-(
 
 ## Resources
 
