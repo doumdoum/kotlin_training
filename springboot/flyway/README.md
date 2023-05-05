@@ -41,8 +41,9 @@ registers all migrations in `flyway_schema_history` table
 1. Create a book repository whose backing table is created by flyway.
    A book has an isbn (unique), a title, a year of edition, and a price
 2. Populate the book repository
-3. Create the author repository. An author has first, last names, a birthdate and an optional deceased date
-4. Populate the book repository with authors
-5. Create relationship between book and authors. Modify the bookentity in accordance.
-6. Populate the relationship
+3. Add a Book controller with read and search methods
+4. Create the author repository. An author has first, last names, a birthdate and an optional deceased date
+5. Populate the book repository with authors
+6. Create relationship between book and authors. Modify the bookentity in accordance.
+7. Populate the relationship
 
