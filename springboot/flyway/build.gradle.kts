@@ -34,7 +34,7 @@ dependencies {
 	//testRuntimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
 
-	// Add jaxb since it"s no longer available in Java 11
+	// Add jaxb since it's no longer available in Java 11
 	runtimeOnly("javax.xml.bind:jaxb-api:2.3.1")
 
     // Test
@@ -56,13 +56,14 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
-// https://flywaydb.org/documentation/usage/gradle/baseline
+// See https://flywaydb.org/documentation/usage/gradle/baseline
 flyway {
 	//url = "jdbc:h2:mem:"
 	url = "jdbc:postgresql://127.0.0.1:5432/"
 	locations = arrayOf(
-		// Add this if you have Java-based migrations
-		"classpath:db/migration", "db/specific/postgres"
+		"db/specific/postgres",
+		// Add this if you have jvm-based migrations
+		"classpath:db/migration"
 	)
 	cleanDisabled = false
 }
