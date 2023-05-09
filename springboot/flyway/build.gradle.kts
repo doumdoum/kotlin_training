@@ -61,11 +61,19 @@ flyway {
 	//url = "jdbc:h2:mem:"
 	url = "jdbc:postgresql://127.0.0.1:5432/"
 	locations = arrayOf(
+		// locations refer to the path in the jar by default
+		// but urls can also be used like filesystem:foo or classpath:bar
 		"db/specific/postgres",
-		// Add this if you have jvm-based migrations
+		// Add this if you have jvm-based migrations (works also without classpath prefix)
 		"classpath:db/migration"
 	)
 	cleanDisabled = false
+}
+
+// we need to build migration classes and process sql migration files before we can migrate
+//tasks["flywayMigrate"].dependsOn("build")
+tasks.withType<org.flywaydb.gradle.task.AbstractFlywayTask> {
+	dependsOn("processResources", "compileKotlin")
 }
 
 kotlin {
